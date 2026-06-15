@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2E2E2E;
+  background-color: #F5F2ED;
+}
+
+input, select, textarea, button {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #B0A89A;
+}
