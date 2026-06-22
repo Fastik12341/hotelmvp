@@ -20,22 +20,22 @@ function StarRating({ rating }) {
 
 function ReviewCard({ review }) {
   return (
-    <div className="bg-white border border-[#E5E0D8] p-6 w-[350px] flex-shrink-0 mx-3 select-none">
+    <div className="bg-white border border-[#E5E0D8] p-6 w-[380px] flex-shrink-0 mx-3 select-none">
       <div className="flex items-center justify-between mb-3">
-        <div>
-          <h4 className="text-base font-medium text-[#2E2E2E]">{review.name}</h4>
-          <p className="text-xs text-[#B0A89A]">{review.country}</p>
+        <div className="min-w-0 flex-1 mr-3">
+          <h4 className="text-base font-medium text-[#2E2E2E] truncate">{review.name}</h4>
+          <p className="text-xs text-[#B0A89A] truncate">{review.country}</p>
         </div>
         <StarRating rating={review.rating} />
       </div>
       
-      <p className="text-sm text-[#6B6B6B] leading-relaxed mb-3 italic">
+      <p className="text-sm text-[#6B6B6B] leading-relaxed mb-3 italic line-clamp-5 whitespace-normal">
         "{review.text}"
       </p>
       
       <div className="flex items-center justify-between text-xs text-[#B0A89A] pt-3 border-t border-[#E5E0D8]">
         <span>{review.date}</span>
-        <span>{review.room}</span>
+        <span className="truncate ml-2">{review.room}</span>
       </div>
     </div>
   )
@@ -43,39 +43,44 @@ function ReviewCard({ review }) {
 
 function Reviews() {
   const trackRef = useRef(null)
-  const scrollSpeed = 1
+  const animationRef = useRef(null)
+  const positionRef = useRef(0)
+  const isPaused = useRef(false)
 
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
 
-    let animationId
-    let position = 0
+    const scrollSpeed = 0.5
 
     const animate = () => {
-      position += scrollSpeed
-      
-      if (position >= track.scrollWidth / 2) {
-        position = 0
+      if (!isPaused.current) {
+        positionRef.current += scrollSpeed
+        
+        if (positionRef.current >= track.scrollWidth / 2) {
+          positionRef.current = 0
+        }
+        
+        track.style.transform = `translateX(-${positionRef.current}px)`
       }
-      
-      track.style.transform = `translateX(-${position}px)`
-      animationId = requestAnimationFrame(animate)
+      animationRef.current = requestAnimationFrame(animate)
     }
 
-    // Пауза при наведении
-    const handleMouseEnter = () => cancelAnimationFrame(animationId)
+    const handleMouseEnter = () => {
+      isPaused.current = true
+    }
+    
     const handleMouseLeave = () => {
-      animationId = requestAnimationFrame(animate)
+      isPaused.current = false
     }
 
     track.addEventListener('mouseenter', handleMouseEnter)
     track.addEventListener('mouseleave', handleMouseLeave)
 
-    animationId = requestAnimationFrame(animate)
+    animationRef.current = requestAnimationFrame(animate)
 
     return () => {
-      cancelAnimationFrame(animationId)
+      cancelAnimationFrame(animationRef.current)
       track.removeEventListener('mouseenter', handleMouseEnter)
       track.removeEventListener('mouseleave', handleMouseLeave)
     }
@@ -98,7 +103,6 @@ function Reviews() {
           className="flex whitespace-nowrap"
           style={{ willChange: 'transform' }}
         >
-          {/* Два набора для бесконечной прокрутки */}
           {[...reviews, ...reviews].map((review, index) => (
             <ReviewCard key={`${review.id}-${index}`} review={review} />
           ))}
