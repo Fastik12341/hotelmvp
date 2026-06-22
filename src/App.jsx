@@ -96,7 +96,7 @@ function App() {
               <ServiceCard 
                 service={service} 
                 onBook={handleBook} 
-                delay={index * 150}
+                delay={index * 80}
               />
             </div>
           ))}
