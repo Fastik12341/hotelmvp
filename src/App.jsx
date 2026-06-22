@@ -9,6 +9,7 @@ import RequestForm from './components/RequestForm'
 import SuccessScreen from './components/SuccessScreen'
 import Reviews from './components/Reviews'
 import ScrollToTop from './components/ScrollToTop'
+import Footer from './components/Footer'
 import AdminPanel from './components/admin/AdminPanel'
 import GuestPanel from './components/GuestPanel'
 import { useLanguage } from './context/LanguageContext'
@@ -64,12 +65,14 @@ function App() {
       <Hero />
       <ChocolateBanner />
 
+      {/* Услуги */}
       <section id="services" className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <span className="text-[#8C7343] text-sm tracking-[.3em] uppercase">{t.services.title}</span>
           <h2 className="text-3xl md:text-4xl font-normal text-[#2E2E2E] mt-3">{t.services.subtitle}</h2>
         </div>
 
+        {/* Фильтры */}
         <div className="flex flex-wrap justify-center gap-3 mb-14">
           {categories.map(cat => (
             <button key={cat} onClick={() => setSelectedCategory(cat)}
@@ -81,6 +84,7 @@ function App() {
           ))}
         </div>
 
+        {/* Карточки услуг */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map(service => (
             <div key={service.id} onClick={() => setDetailsService(service)} className="cursor-pointer">
@@ -90,18 +94,21 @@ function App() {
         </div>
       </section>
 
+      {/* Отзывы */}
       <Reviews />
 
-      <footer className="border-t border-[#E5E0D8] py-8 text-center">
-        <p className="text-sm text-[#B0A89A]">{t.footer.text}</p>
-      </footer>
+      {/* Футер */}
+      <Footer />
 
+      {/* Кнопка наверх */}
       <ScrollToTop />
 
+      {/* Модальное окно — детали услуги */}
       {detailsService && (
         <ServiceDetails service={detailsService} onClose={() => setDetailsService(null)} onBook={handleBook} />
       )}
 
+      {/* Модальное окно — форма бронирования */}
       {bookingService && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white max-w-xl w-full p-8 relative max-h-[90vh] overflow-y-auto">
@@ -117,6 +124,7 @@ function App() {
         </div>
       )}
 
+      {/* Модальное окно — код и детали заказа */}
       {requestCode && requestData && (
         <SuccessScreen requestData={requestData} requestCode={requestCode} onClose={() => {}} onReset={handleReset} />
       )}
