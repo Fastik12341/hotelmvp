@@ -10,6 +10,7 @@ import SuccessScreen from './components/SuccessScreen'
 import Reviews from './components/Reviews'
 import ScrollToTop from './components/ScrollToTop'
 import Footer from './components/Footer'
+import ChatBot from './components/ChatBot'
 import AdminPanel from './components/admin/AdminPanel'
 import GuestPanel from './components/GuestPanel'
 import { useLanguage } from './context/LanguageContext'
@@ -102,6 +103,9 @@ function App() {
 
       {/* Кнопка наверх */}
       <ScrollToTop />
+
+      {/* Чат-бот */}
+      <ChatBot />
 
       {/* Модальное окно — детали услуги */}
       {detailsService && (
