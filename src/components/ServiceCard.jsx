@@ -4,7 +4,7 @@ function ServiceCard({ service, onBook }) {
   const { t, lang } = useLanguage()
 
   return (
-    <div className="bg-white border border-[#E5E0D8] overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white border border-[#E5E0D8] overflow-hidden flex flex-col hover:shadow-lg transition-all duration-500 hover:-translate-y-1 animate-fadeIn">
       <div className="h-48 overflow-hidden">
         <img 
           src={service.image} 
