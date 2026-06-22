@@ -1,12 +1,36 @@
+import { useEffect, useRef } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 
-function ServiceCard({ service, onBook, style }) {
+function ServiceCard({ service, onBook, delay }) {
   const { t, lang } = useLanguage()
+  const cardRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible')
+            }, delay)
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [delay])
 
   return (
     <div 
+      ref={cardRef}
       className="fade-in-up bg-white border border-[#E5E0D8] overflow-hidden flex flex-col hover:shadow-lg transition-all duration-500 hover:-translate-y-1"
-      style={style}
     >
       <div className="h-48 overflow-hidden">
         <img 
