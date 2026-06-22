@@ -1,10 +1,13 @@
 import { useLanguage } from '../context/LanguageContext'
 
-function ServiceCard({ service, onBook }) {
+function ServiceCard({ service, onBook, style }) {
   const { t, lang } = useLanguage()
 
   return (
-    <div className="bg-white border border-[#E5E0D8] overflow-hidden flex flex-col hover:shadow-lg transition-all duration-500 hover:-translate-y-1 animate-fadeIn">
+    <div 
+      className="fade-in-up bg-white border border-[#E5E0D8] overflow-hidden flex flex-col hover:shadow-lg transition-all duration-500 hover:-translate-y-1"
+      style={style}
+    >
       <div className="h-48 overflow-hidden">
         <img 
           src={service.image} 

@@ -92,9 +92,12 @@ function App() {
               key={service.id} 
               onClick={() => setDetailsService(service)} 
               className="cursor-pointer"
-              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <ServiceCard service={service} onBook={handleBook} />
+              <ServiceCard 
+                service={service} 
+                onBook={handleBook} 
+                style={{ animationDelay: `${index * 100}ms` }}
+              />
             </div>
           ))}
         </div>
