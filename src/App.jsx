@@ -88,10 +88,11 @@ function App() {
         {/* Карточки услуг с анимацией */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map((service, index) => {
-            // 3 карточки в строке → строки по 3
             const row = Math.floor(index / 3)
-            const positionInRow = index % 3
-            const delay = row * 200 + positionInRow * 50
+            // Первые две строки (0 и 1) — задержка 0
+            // Третья строка (2) — задержка 150ms
+            // И т.д.
+            const delay = row <= 1 ? index * 50 : (row - 1) * 200 + (index % 3) * 50
             
             return (
               <div 
