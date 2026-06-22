@@ -10,6 +10,7 @@ import SuccessScreen from './components/SuccessScreen'
 import Reviews from './components/Reviews'
 import ScrollToTop from './components/ScrollToTop'
 import AdminPanel from './components/admin/AdminPanel'
+import GuestPanel from './components/GuestPanel'
 import { generateRequestCode, saveRequest } from './utils/requestUtils'
 
 function App() {
@@ -51,22 +52,28 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const handleLogout = () => {
+  const handleBackToMain = () => {
     setPage('main')
   }
 
   if (page === 'admin') {
-    return <AdminPanel onLogout={handleLogout} />
+    return <AdminPanel onLogout={handleBackToMain} />
+  }
+
+  if (page === 'guest') {
+    return <GuestPanel onBack={handleBackToMain} />
   }
 
   return (
     <div className="min-h-screen bg-[#F5F2ED]" style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}>
       
-      <Header onAdminClick={() => setPage('admin')} />
+      <Header 
+        onAdminClick={() => setPage('admin')} 
+        onGuestClick={() => setPage('guest')}
+      />
       <Hero />
       <ChocolateBanner />
 
-      {/* Услуги */}
       <section id="services" className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <span className="text-[#8C7343] text-sm tracking-[.3em] uppercase">Services</span>
@@ -75,7 +82,6 @@ function App() {
           </h2>
         </div>
 
-        {/* Фильтры */}
         <div className="flex flex-wrap justify-center gap-3 mb-14">
           {categories.map(cat => (
             <button
@@ -92,7 +98,6 @@ function App() {
           ))}
         </div>
 
-        {/* Карточки услуг */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map(service => (
             <div
@@ -106,20 +111,16 @@ function App() {
         </div>
       </section>
 
-      {/* Отзывы */}
       <Reviews />
 
-      {/* Футер */}
       <footer className="border-t border-[#E5E0D8] py-8 text-center">
         <p className="text-sm text-[#B0A89A]">
           Mövenpick Siam Hotel Na Jomtien Pattaya
         </p>
       </footer>
 
-      {/* Кнопка наверх */}
       <ScrollToTop />
 
-      {/* Модальное окно — детали услуги */}
       {detailsService && (
         <ServiceDetails
           service={detailsService}
@@ -128,7 +129,6 @@ function App() {
         />
       )}
 
-      {/* Модальное окно — форма бронирования */}
       {bookingService && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white max-w-xl w-full p-8 relative max-h-[90vh] overflow-y-auto">
@@ -157,7 +157,6 @@ function App() {
         </div>
       )}
 
-      {/* Модальное окно — код и детали заказа */}
       {requestCode && requestData && (
         <SuccessScreen
           requestData={requestData}
