@@ -63,7 +63,18 @@ const translations = {
       count: "отзывов от гостей со всего мира"
     },
     footer: {
-      text: "Mövenpick Siam Hotel Na Jomtien Pattaya"
+    aboutTitle: "Mövenpick Siam",
+    aboutText: "Mövenpick Siam Hotel Na Jomtien — премиальный пятизвёздочный отель на побережье Сиамского залива. Швейцарское качество и тайское гостеприимство в самом сердце Паттайи.",
+    servicesTitle: "Услуги",
+    contactsTitle: "Контакты",
+    address: "55 Moo 2, Na Jomtien, Sattahip, Pattaya 20250, Thailand",
+    phone: "+66 38 255 888",
+    email: "reservations.pattaya@movenpick.com",
+    hours: "Круглосуточно",
+    privacy: "Политика конфиденциальности",
+    terms: "Условия использования",
+    cookies: "Cookie Policy",
+    copyright: "© 2026 Mövenpick Siam Hotel Na Jomtien Pattaya. Все права защищены."
     },
     guestPanel: {
       title: "Личный кабинет",
@@ -178,7 +189,18 @@ const translations = {
       count: "reviews from guests around the world"
     },
     footer: {
-      text: "Mövenpick Siam Hotel Na Jomtien Pattaya"
+    aboutTitle: "Mövenpick Siam",
+    aboutText: "Mövenpick Siam Hotel Na Jomtien is a premium five-star hotel on the Gulf of Thailand. Swiss quality and Thai hospitality in the heart of Pattaya.",
+    servicesTitle: "Services",
+    contactsTitle: "Contact Us",
+    address: "55 Moo 2, Na Jomtien, Sattahip, Pattaya 20250, Thailand",
+    phone: "+66 38 255 888",
+    email: "reservations.pattaya@movenpick.com",
+    hours: "24/7",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service",
+    cookies: "Cookie Policy",
+    copyright: "© 2026 Mövenpick Siam Hotel Na Jomtien Pattaya. All rights reserved."
     },
     guestPanel: {
       title: "Guest Account",
@@ -293,7 +315,18 @@ const translations = {
       count: "รีวิวจากแขกทั่วโลก"
     },
     footer: {
-      text: "Mövenpick Siam Hotel Na Jomtien Pattaya"
+    aboutTitle: "Mövenpick Siam",
+    aboutText: "Mövenpick Siam Hotel Na Jomtien เป็นโรงแรมระดับห้าดาวบนอ่าวไทย คุณภาพแบบสวิสและการต้อนรับแบบไทยในใจกลางพัทยา",
+    servicesTitle: "บริการ",
+    contactsTitle: "ติดต่อเรา",
+    address: "55 หมู่ 2, นาจอมเทียน, สัตหีบ, พัทยา 20250, ประเทศไทย",
+    phone: "+66 38 255 888",
+    email: "reservations.pattaya@movenpick.com",
+    hours: "24 ชั่วโมง",
+    privacy: "นโยบายความเป็นส่วนตัว",
+    terms: "เงื่อนไขการให้บริการ",
+    cookies: "นโยบายคุกกี้",
+    copyright: "© 2026 Mövenpick Siam Hotel Na Jomtien Pattaya. สงวนลิขสิทธิ์ทั้งหมด."
     },
     guestPanel: {
       title: "บัญชีแขก",
