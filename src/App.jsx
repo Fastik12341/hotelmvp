@@ -87,19 +87,26 @@ function App() {
 
         {/* Карточки услуг с анимацией */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredServices.map((service, index) => (
-            <div 
-              key={service.id} 
-              onClick={() => setDetailsService(service)} 
-              className="cursor-pointer"
-            >
-              <ServiceCard 
-                service={service} 
-                onBook={handleBook} 
-                delay={index * 80}
-              />
-            </div>
-          ))}
+          {filteredServices.map((service, index) => {
+            // 3 карточки в строке → строки по 3
+            const row = Math.floor(index / 3)
+            const positionInRow = index % 3
+            const delay = row * 200 + positionInRow * 50
+            
+            return (
+              <div 
+                key={service.id} 
+                onClick={() => setDetailsService(service)} 
+                className="cursor-pointer"
+              >
+                <ServiceCard 
+                  service={service} 
+                  onBook={handleBook} 
+                  delay={delay}
+                />
+              </div>
+            )
+          })}
         </div>
       </section>
 
