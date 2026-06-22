@@ -1,3 +1,5 @@
+// src/components/Header.jsx
+
 function Header({ onAdminClick, onGuestClick }) {
   return (
     <header className="bg-white border-b border-[#E5E0D8]">
@@ -8,9 +10,6 @@ function Header({ onAdminClick, onGuestClick }) {
         <nav className="hidden md:flex items-center gap-8">
           <a href="#services" className="text-sm text-[#6B6B6B] hover:text-[#8C7343] transition-colors tracking-wide">
             Services
-          </a>
-          <a href="#booking" className="text-sm text-[#6B6B6B] hover:text-[#8C7343] transition-colors tracking-wide">
-            Booking
           </a>
           <button
             onClick={onGuestClick}
