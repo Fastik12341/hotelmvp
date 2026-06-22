@@ -7,6 +7,7 @@ import ServiceDetails from './components/ServiceDetails'
 import RequestForm from './components/RequestForm'
 import SuccessScreen from './components/SuccessScreen'
 import Reviews from './components/Reviews'
+import ScrollToTop from './components/ScrollToTop'
 import AdminPanel from './components/admin/AdminPanel'
 import { generateRequestCode, saveRequest } from './utils/requestUtils'
 
@@ -112,6 +113,9 @@ function App() {
           Mövenpick Siam Hotel Na Jomtien Pattaya
         </p>
       </footer>
+
+      {/* Кнопка наверх */}
+      <ScrollToTop />
 
       {/* Модальное окно — детали услуги */}
       {detailsService && (
