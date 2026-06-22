@@ -20,8 +20,16 @@ const services = [
       th: "พรีเมียมบาร์บีคิวดินเนอร์ริมทะเลพร้อมอาหารทะเลสดและบรรยากาศพระอาทิตย์ตก"
     },
     price: "1,500 THB",
-    time: "18:00 – 22:00",
-    format: "Ужин",
+    time: {
+      ru: "18:00 – 22:00",
+      en: "18:00 – 22:00",
+      th: "18:00 – 22:00 น."
+    },
+    format: {
+      ru: "Ужин",
+      en: "Dinner",
+      th: "อาหารเย็น"
+    },
     image: bbqImg,
     available: true
   },
@@ -39,8 +47,16 @@ const services = [
       th: "พิธีกรรมสปาเต็มรูปแบบ: นวด อโรมาเธอราพี และซาวน่าสมุนไพรเพื่อการผ่อนคลายอย่างเต็มที่"
     },
     price: "2,400 THB",
-    time: "60 / 90 мин",
-    format: "Процедура",
+    time: {
+      ru: "60 / 90 мин",
+      en: "60 / 90 min",
+      th: "60 / 90 นาที"
+    },
+    format: {
+      ru: "Процедура",
+      en: "Treatment",
+      th: "ทรีตเมนต์"
+    },
     image: spaImg,
     available: true
   },
@@ -58,8 +74,16 @@ const services = [
       th: "บริการรับส่งส่วนตัวด้วยรถพรีเมียมพร้อมคนขับ รับรองด้วยป้ายชื่อ"
     },
     price: "1,200 THB",
-    time: "По запросу",
-    format: "Трансфер",
+    time: {
+      ru: "По запросу",
+      en: "On request",
+      th: "ตามคำขอ"
+    },
+    format: {
+      ru: "Трансфер",
+      en: "Transfer",
+      th: "รับส่ง"
+    },
     image: transferImg,
     available: true
   },
@@ -77,8 +101,16 @@ const services = [
       th: "เกมการศึกษา เวิร์กช็อปสร้างสรรค์ และกิจกรรมกลางแจ้งที่มีผู้ดูแลสำหรับเด็ก"
     },
     price: "800 THB",
-    time: "09:00 – 17:00",
-    format: "День",
+    time: {
+      ru: "09:00 – 17:00",
+      en: "09:00 – 17:00",
+      th: "09:00 – 17:00 น."
+    },
+    format: {
+      ru: "День",
+      en: "Full day",
+      th: "เต็มวัน"
+    },
     image: kidsImg,
     available: true
   },
@@ -96,8 +128,16 @@ const services = [
       th: "ดินเนอร์ใต้แสงเทียนบนชายหาดพร้อมบริกรส่วนตัวและดนตรีสด"
     },
     price: "3,200 THB",
-    time: "19:00 – 23:00",
-    format: "Ужин",
+    time: {
+      ru: "19:00 – 23:00",
+      en: "19:00 – 23:00",
+      th: "19:00 – 23:00 น."
+    },
+    format: {
+      ru: "Ужин",
+      en: "Dinner",
+      th: "อาหารเย็น"
+    },
     image: romanticImg,
     available: true
   },
@@ -115,8 +155,16 @@ const services = [
       th: "ทัวร์ส่วนตัวในพัทยาพร้อมไกด์ท้องถิ่น: วัด ตลาด สถานที่ลับ"
     },
     price: "1,800 THB",
-    time: "4 / 6 / 8 часов",
-    format: "Экскурсия",
+    time: {
+      ru: "4 / 6 / 8 часов",
+      en: "4 / 6 / 8 hours",
+      th: "4 / 6 / 8 ชั่วโมง"
+    },
+    format: {
+      ru: "Экскурсия",
+      en: "Tour",
+      th: "ทัวร์"
+    },
     image: tourImg,
     available: true
   }

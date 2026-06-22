@@ -29,8 +29,8 @@ function ServiceCard({ service, onBook }) {
         </p>
 
         <div className="flex items-center gap-4 text-sm text-[#6B6B6B] mb-4">
-          <span>🕐 {service.time}</span>
-          <span>📋 {service.format}</span>
+          <span>🕐 {service.time[lang]}</span>
+          <span>📋 {service.format[lang]}</span>
         </div>
 
         <div className="flex items-center justify-between pt-4 border-t border-[#E5E0D8]">

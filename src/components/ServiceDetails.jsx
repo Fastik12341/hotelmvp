@@ -24,11 +24,11 @@ function ServiceDetails({ service, onClose, onBook }) {
           <div className="grid grid-cols-2 gap-4 mb-5 pb-5 border-b border-[#E5E0D8]">
             <div>
               <span className="text-xs text-[#B0A89A] uppercase tracking-wider">{t.serviceDetails.time}</span>
-              <p className="text-[#2E2E2E] mt-1">🕐 {service.time}</p>
+              <p className="text-[#2E2E2E] mt-1">🕐 {service.time[lang]}</p>
             </div>
             <div>
               <span className="text-xs text-[#B0A89A] uppercase tracking-wider">{t.serviceDetails.format}</span>
-              <p className="text-[#2E2E2E] mt-1">📋 {service.format}</p>
+              <p className="text-[#2E2E2E] mt-1">📋 {service.format[lang]}</p>
             </div>
           </div>
 
