@@ -2,6 +2,7 @@ import { useState } from 'react'
 import services from './data/services'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import ChocolateBanner from './components/ChocolateBanner'
 import ServiceCard from './components/ServiceCard'
 import ServiceDetails from './components/ServiceDetails'
 import RequestForm from './components/RequestForm'
@@ -63,6 +64,7 @@ function App() {
       
       <Header onAdminClick={() => setPage('admin')} />
       <Hero />
+      <ChocolateBanner />
 
       {/* Услуги */}
       <section id="services" className="max-w-6xl mx-auto px-6 py-24">
