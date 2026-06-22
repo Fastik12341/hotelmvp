@@ -1,3 +1,5 @@
+// src/components/Reviews.jsx
+
 import { useEffect, useRef } from 'react'
 import reviews from '../data/reviews'
 
@@ -45,7 +47,6 @@ function Reviews() {
   const trackRef = useRef(null)
   const animationRef = useRef(null)
   const positionRef = useRef(0)
-  const isPaused = useRef(false)
 
   useEffect(() => {
     const track = trackRef.current
@@ -54,35 +55,20 @@ function Reviews() {
     const scrollSpeed = 0.5
 
     const animate = () => {
-      if (!isPaused.current) {
-        positionRef.current += scrollSpeed
-        
-        if (positionRef.current >= track.scrollWidth / 2) {
-          positionRef.current = 0
-        }
-        
-        track.style.transform = `translateX(-${positionRef.current}px)`
+      positionRef.current += scrollSpeed
+      
+      if (positionRef.current >= track.scrollWidth / 2) {
+        positionRef.current = 0
       }
+      
+      track.style.transform = `translateX(-${positionRef.current}px)`
       animationRef.current = requestAnimationFrame(animate)
     }
-
-    const handleMouseEnter = () => {
-      isPaused.current = true
-    }
-    
-    const handleMouseLeave = () => {
-      isPaused.current = false
-    }
-
-    track.addEventListener('mouseenter', handleMouseEnter)
-    track.addEventListener('mouseleave', handleMouseLeave)
 
     animationRef.current = requestAnimationFrame(animate)
 
     return () => {
       cancelAnimationFrame(animationRef.current)
-      track.removeEventListener('mouseenter', handleMouseEnter)
-      track.removeEventListener('mouseleave', handleMouseLeave)
     }
   }, [])
 
@@ -111,7 +97,7 @@ function Reviews() {
 
       <div className="text-center mt-10">
         <p className="text-[#B0A89A] text-sm">
-          ★ {reviews.length} отзывов от гостей со всего мира
+          ★ Отзывы от гостей со всего мира
         </p>
       </div>
     </section>
