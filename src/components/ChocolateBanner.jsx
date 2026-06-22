@@ -40,35 +40,34 @@ function ChocolateBanner() {
       ))}
 
       {/* Оверлей */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#8C7343]/80 via-[#2E2E2E]/50 to-[#8C7343]/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#8C7343]/85 via-[#2E2E2E]/55 to-[#8C7343]/85"></div>
 
       {/* Контент */}
       <div className="absolute inset-0 flex items-center justify-center px-6">
-        <div className="text-center text-white max-w-3xl">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="text-4xl md:text-5xl">🍫</span>
-            <h3 className="text-2xl md:text-4xl font-normal tracking-wide">
+        <div className="text-center text-white max-w-2xl">
+          <div className="inline-block border-t border-b border-white/30 py-3 mb-5">
+            <h3 className="text-xl md:text-3xl font-light tracking-[.25em] uppercase">
               Chocolate Hour
             </h3>
-            <span className="text-4xl md:text-5xl">🍦</span>
           </div>
-          <p className="text-lg md:text-2xl font-light text-white/90 mb-3">
+          <p className="text-sm md:text-base text-white/80 font-light tracking-[.15em] uppercase mb-6">
             Ежедневно в 16:00
           </p>
-          <p className="text-sm md:text-base text-white/70 font-light max-w-xl mx-auto">
-            Бесплатная дегустация швейцарского шоколада и знаменитого мороженого Mövenpick для всех гостей отеля
+          <div className="w-12 h-px bg-white/40 mx-auto mb-6"></div>
+          <p className="text-sm md:text-base text-white/70 font-light leading-relaxed max-w-lg mx-auto italic">
+            Швейцарские традиции гостеприимства — бесплатная дегустация фирменного шоколада и мороженого Mövenpick для всех гостей отеля
           </p>
 
           {/* Индикаторы */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-8">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentImage(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === currentImage
-                    ? 'bg-white w-7'
-                    : 'bg-white/40 hover:bg-white/70'
+                    ? 'bg-white w-6'
+                    : 'bg-white/30 hover:bg-white/60'
                 }`}
               />
             ))}
