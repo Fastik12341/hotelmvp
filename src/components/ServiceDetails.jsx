@@ -1,14 +1,14 @@
 import { useLanguage } from '../context/LanguageContext'
 
 function ServiceDetails({ service, onClose, onBook }) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   if (!service) return null
 
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={onClose}>
       <div className="bg-white max-w-lg w-full border border-[#E5E0D8] overflow-hidden" onClick={e => e.stopPropagation()}>
         <div className="h-56 overflow-hidden relative">
-          <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+          <img src={service.image} alt={service.title[lang]} className="w-full h-full object-cover" />
           <button onClick={onClose} className="absolute top-4 right-4 bg-white/90 hover:bg-white text-[#2E2E2E] w-8 h-8 flex items-center justify-center transition-colors">
             ✕
           </button>
@@ -18,8 +18,8 @@ function ServiceDetails({ service, onClose, onBook }) {
           <span className="text-xs text-[#8C7343] tracking-wider uppercase bg-[#F5F2ED] px-3 py-1 inline-block mb-3">
             {t.categories[service.category]}
           </span>
-          <h2 className="text-2xl font-normal text-[#2E2E2E] mb-3">{service.title}</h2>
-          <p className="text-[#8C8C8C] leading-relaxed mb-5">{service.description}</p>
+          <h2 className="text-2xl font-normal text-[#2E2E2E] mb-3">{service.title[lang]}</h2>
+          <p className="text-[#8C8C8C] leading-relaxed mb-5">{service.description[lang]}</p>
 
           <div className="grid grid-cols-2 gap-4 mb-5 pb-5 border-b border-[#E5E0D8]">
             <div>

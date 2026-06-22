@@ -1,14 +1,14 @@
 import { useLanguage } from '../context/LanguageContext'
 
 function ServiceCard({ service, onBook }) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   return (
     <div className="bg-white border border-[#E5E0D8] overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300">
       <div className="h-48 overflow-hidden">
         <img 
           src={service.image} 
-          alt={service.title} 
+          alt={service.title[lang]} 
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
         />
       </div>
@@ -21,11 +21,11 @@ function ServiceCard({ service, onBook }) {
         </div>
         
         <h3 className="text-lg font-normal text-[#2E2E2E] mb-2">
-          {service.title}
+          {service.title[lang]}
         </h3>
         
         <p className="text-[#8C8C8C] text-sm leading-relaxed mb-4 flex-grow">
-          {service.description}
+          {service.description[lang]}
         </p>
 
         <div className="flex items-center gap-4 text-sm text-[#6B6B6B] mb-4">

@@ -3,11 +3,11 @@ import services from '../data/services'
 import { useLanguage } from '../context/LanguageContext'
 
 function RequestForm({ selectedService, onSubmit }) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const [formData, setFormData] = useState({
     guestName: '',
     roomNumber: '',
-    service: selectedService?.title || '',
+    service: selectedService?.title[lang] || '',
     date: '',
     time: '',
     guests: '1',
@@ -51,7 +51,7 @@ function RequestForm({ selectedService, onSubmit }) {
           className="w-full border border-[#E5E0D8] px-4 py-3 text-[#2E2E2E] focus:outline-none focus:border-[#8C7343] transition-colors bg-[#F5F2ED]">
           <option value="" disabled>{t.booking.selectService}</option>
           {services.map(s => (
-            <option key={s.id} value={s.title}>{s.title}</option>
+            <option key={s.id} value={s.title[lang]}>{s.title[lang]}</option>
           ))}
         </select>
       </div>
