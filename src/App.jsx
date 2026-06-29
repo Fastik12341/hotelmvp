@@ -17,7 +17,7 @@ import { useLanguage } from './context/LanguageContext'
 import { generateRequestCode, saveRequest } from './utils/requestUtils'
 
 function App() {
-  const { t } = useLanguage()
+  const { t, lang  } = useLanguage()
   const [page, setPage] = useState('main')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [detailsService, setDetailsService] = useState(null)
@@ -137,7 +137,7 @@ function App() {
             <div className="text-center mb-10">
               <span className="text-[#8C7343] text-sm tracking-[.3em] uppercase">{t.booking.title}</span>
               <h2 className="text-2xl md:text-3xl font-normal text-[#2E2E2E] mt-3">{t.booking.subtitle}</h2>
-              <p className="text-[#8C7343] mt-3 text-lg">{bookingService.title}</p>
+              <p className="text-[#8C7343] mt-3 text-lg">{bookingService.title[lang]}</p>
             </div>
             <RequestForm selectedService={bookingService} onSubmit={handleSubmit} />
           </div>
